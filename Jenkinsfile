@@ -10,7 +10,7 @@ node('master')
     }
     stage('ContinuousDeployment')
     {
-        sh label: '', script: 'scp /home/ubuntu/.jenkins/workspace/pipeline/webapp/target/webapp.war ubuntu@172.31.31.201:/var/lib/tomcat8/webapps/testenv.war'
+        sh label: '', script: 'scp /home/ubuntu/.jenkins/workspace/pipeline/webapp/target/webapp.war ubuntu@172.31.21.235:/var/lib/tomcat8/webapps/testenv.war'
     }
     stage('ContinuousTesting')
     {
@@ -20,7 +20,7 @@ node('master')
      stage('ContinuousDelivery')
     {
         input message: 'Waiting for Approval from the DM', submitter: 'Srinivas'
-        sh label: '', script: 'scp /home/ubuntu/.jenkins/workspace/pipeline/webapp/target/webapp.war ubuntu@172.31.29.72:/var/lib/tomcat8/webapps/prodenv.war'
+        sh label: '', script: 'scp /home/ubuntu/.jenkins/workspace/pipeline/webapp/target/webapp.war ubuntu@172.31.19.220:/var/lib/tomcat8/webapps/prodenv.war'
     }
     
     
